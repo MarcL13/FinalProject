@@ -58,7 +58,6 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 	public static void main(String[] args)
 	{
 		new GameBoardMain();
-
 	}
 
 	@Override

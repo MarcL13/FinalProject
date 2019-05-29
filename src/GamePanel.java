@@ -28,7 +28,7 @@ public class GamePanel extends JPanel
 		balls = new ArrayList<Ball>();
 		
 		addBall enemy = new addBall();
-		add(enemy);
+		
 		enemy.setVisible(true);
 		for(Ball b : balls)
 		{
@@ -40,6 +40,8 @@ public class GamePanel extends JPanel
 		}
 		
 		Brick brick = new Brick(10,10,1);
+		gbc.gridx = 1;
+		add(brick,gbc);
 		
 		
 		

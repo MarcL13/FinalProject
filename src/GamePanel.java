@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 
 public class GamePanel extends JPanel
 {
+	private ArrayList<Ball> balls;
+	
 	public GamePanel()
 	{
 		this.setBounds(0,0,500,500);
@@ -22,6 +24,19 @@ public class GamePanel extends JPanel
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 0;
+		
+		balls = new ArrayList<Ball>();
+		
+		boolean dead = false;
+		addBall enemy = new addBall();
+		for(Ball b : balls)
+		{
+			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
+			{
+				remove(enemy);
+				balls.add(new Ball(10,10));
+			}
+		}
 		
 		Brick brick = new Brick(10,10,1);
 		

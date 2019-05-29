@@ -11,6 +11,7 @@ public class addBall extends JComponent implements Updatable
 		
 	private Ellipse2D.Double addBall;
 	private int dx = 0, dy = 0;
+	
 	public void update() {}
 
 	public addBall()

@@ -27,8 +27,9 @@ public class GamePanel extends JPanel
 		
 		balls = new ArrayList<Ball>();
 		
-		boolean dead = false;
 		addBall enemy = new addBall();
+		add(enemy);
+		enemy.setVisible(true);
 		for(Ball b : balls)
 		{
 			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())

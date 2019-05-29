@@ -6,21 +6,20 @@ import javax.swing.JComponent;
 
 
 
-	public class addBall extends JComponent implements Updatable{
+public class addBall extends JComponent implements Updatable
+{
 		
-		private Ellipse2D.Double addBall;
-		
-		private int dx = 0, dy = 0;
-		
-		public void update() {}
-		
-		public addBall() {
-			
-			setBounds(getX(),getY(),8,8);
+	private Ellipse2D.Double addBall;
+	private int dx = 0, dy = 0;
+	public void update() {}
+
+	public addBall()
+	{
+		setBounds(getX(),getY(),8,8);
 	}
 
-	public void paintComponent (Graphics g) {
-		
+	public void paintComponent (Graphics g)
+	{
 		Graphics2D g2 = (Graphics2D) g;
 		g2.draw(addBall);
 		g2.fill(addBall);

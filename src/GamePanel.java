@@ -1,8 +1,11 @@
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -10,10 +13,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
-public class GamePanel extends JPanel
+public class GamePanel extends JPanel implements ActionListener 
 {
-	private ArrayList<Ball> balls;
+	private ArrayList<Ball> balls = new ArrayList<>();
+	private BallShooter shotta = new BallShooter(getWidth()/2, getHeight());
+	Ball newBall = new Ball(shotta.getX(), shotta.getY());
+	
 	private ArrayList<Brick> bricks;
 	
 	public GamePanel()
@@ -28,10 +35,9 @@ public class GamePanel extends JPanel
 		balls = new ArrayList<Ball>();
 		bricks = new ArrayList<Brick>();
 		
-		addBall enemy = new addBall(100,100);
-		gbc.gridx=2;
-		add(enemy,gbc);
+		addBall enemy = new addBall();
 		
+		enemy.setVisible(true);
 		for(Ball b : balls)
 		{
 			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
@@ -41,13 +47,58 @@ public class GamePanel extends JPanel
 			}
 		}
 		
-		
-		
-		
 		Brick brick = new Brick(10,10,1);
 		gbc.gridx = 1;
 		add(brick,gbc);
 		
+
+		
+		add(shotta);
+		addKeyListener(new KeyListener()
+		{
+
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+					for(Ball b: balls)
+					{
+						b.setDX(b.getDX()-1);
+					}
+			    		        
+			    }
+
+			     if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			    	 for(Ball b: balls)
+						{
+							b.setDX(b.getDX()+1);
+						}
+			    		
+			    }
+			}
+			public void keyReleased(KeyEvent e)
+			{
+				
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+					for(Ball b: balls)
+					{
+						add(b);
+					}
+				}
+				 
+			}
+	
+			});
+
+Timer t1 = new Timer(1000/60,this);
+t1.start();
+
 		
 		
 		
@@ -55,6 +106,11 @@ public class GamePanel extends JPanel
 		
 		
 		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 	

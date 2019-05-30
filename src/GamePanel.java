@@ -1,4 +1,3 @@
-
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -29,9 +28,10 @@ public class GamePanel extends JPanel
 		balls = new ArrayList<Ball>();
 		bricks = new ArrayList<Brick>();
 		
-		addBall enemy = new addBall();
+		addBall enemy = new addBall(100,100);
+		gbc.gridx=2;
+		add(enemy,gbc);
 		
-		enemy.setVisible(true);
 		for(Ball b : balls)
 		{
 			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
@@ -40,6 +40,9 @@ public class GamePanel extends JPanel
 				balls.add(new Ball(10,10));
 			}
 		}
+		
+		
+		
 		
 		Brick brick = new Brick(10,10,1);
 		gbc.gridx = 1;

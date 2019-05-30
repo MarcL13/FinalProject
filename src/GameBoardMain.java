@@ -34,7 +34,9 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		game.setEnabled(true);
 		
 		
+		
 		//general stuff
+		this.setResizable(false);
 		this.setVisible(true);		
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		

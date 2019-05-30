@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 public class GamePanel extends JPanel
 {
 	private ArrayList<Ball> balls;
+	private ArrayList<Brick> bricks;
 	
 	public GamePanel()
 	{
@@ -26,6 +27,7 @@ public class GamePanel extends JPanel
 		gbc.gridy = 0;
 		
 		balls = new ArrayList<Ball>();
+		bricks = new ArrayList<Brick>();
 		
 		addBall enemy = new addBall();
 		

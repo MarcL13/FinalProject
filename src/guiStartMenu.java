@@ -22,9 +22,6 @@ public class guiStartMenu extends JPanel implements ActionListener
 	public guiStartMenu()
 	{
 
-		
-	
-
 	this.setBounds(0,0,500,500);
 	setLayout(new GridBagLayout());
 	JPanel panel = new JPanel();

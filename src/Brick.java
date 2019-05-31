@@ -17,8 +17,7 @@ public class Brick extends JComponent implements Updatable
 	public Brick(int x, int y, int level)
 	{
 		this.level = level;
-		setBounds(x,y,75,50);
-		
+		this.setPreferredSize(new Dimension(75,50));		
 		brick = new Rectangle2D.Double(0,0,74,49);
 		if(Math.random()<.2)
 			hp = level*2;

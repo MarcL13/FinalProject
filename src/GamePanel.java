@@ -175,10 +175,11 @@ t1.start();
 		if(br.getX() == 0)
 		{
 			gameRun = false;
-			
-			if(gameRun == false) {
+			if(!gameRun)
+			{
 				frame.over();
-			}
+			}	
+			
 		}
 	}
 		

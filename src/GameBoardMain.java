@@ -29,7 +29,6 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		add(menu);
 		
 		
-		
 		game = new GamePanel();
 		game.setVisible(true);
 		game.setEnabled(true);
@@ -64,10 +63,11 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		repaint();
 		this.revalidate();
 	}
+	
+	//when game ends
 	public void over()
 	{
 		this.remove(game);
-		this.remove(menu);
 		add(board);
 		repaint();
 		this.revalidate();
@@ -76,7 +76,6 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 	
 	public static void main(String[] args)
 	{
-		
 		new GameBoardMain();
 	}
 

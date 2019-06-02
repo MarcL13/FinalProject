@@ -1,4 +1,3 @@
-
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -50,10 +49,11 @@ public class GamePanel extends JPanel implements ActionListener
 		
 		balls = new ArrayList<Ball>();
 		bricks = new ArrayList<Brick>();
+		int count = balls.size();
 		
-		addBall enemy = new addBall(10,10);
+
 		
-		enemy.setVisible(true);
+	
 //		for(Ball b : balls)
 //		{
 //			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
@@ -133,8 +133,35 @@ public class GamePanel extends JPanel implements ActionListener
 Timer t1 = new Timer(1000/60,this);
 t1.start();
 
-		
-		
+	//Updates: when each ball reaches bottom it is removed and bricks update with randomization	
+		for(Ball b:balls) {
+			if(b.getY() == 0) {
+				remove(b);
+				count--;
+			}
+			if(count == 0) {
+				for(Brick br:bricks) {
+					br.update();
+					
+					for(int i=1;i<8;i++)
+					{
+						double random = Math.random();
+						if(random<.5)
+						{
+							Brick brick = new Brick(i,0,level);
+							add(brick);
+							bricks.add(brick);
+						}
+						else if(random>.8)
+						{
+							addBall addB = new addBall(i,0);
+							add(addB);
+						}
+					}
+					
+				}
+			}
+		}
 		
 		
 		

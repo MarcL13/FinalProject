@@ -168,7 +168,13 @@ t1.start();
 		//Game End conditions
 	for(Brick br: bricks)
 		if(br.getX() == 0)
+		{
 			gameRun = false;
+			
+			if(gameRun == false) {
+				frame.over();
+			}
+		}
 	}
 		
 		

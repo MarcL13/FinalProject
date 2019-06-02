@@ -29,6 +29,8 @@ public class GamePanel extends JPanel implements ActionListener
 	
 	private ArrayList<Brick> bricks;
 	
+	private ArrayList<addBall> addBalls;
+	
 	public void setFrame(GameBoardMain fr)
 	{
 		frame = fr;
@@ -55,6 +57,7 @@ public class GamePanel extends JPanel implements ActionListener
 		
 		balls = new ArrayList<Ball>();
 		bricks = new ArrayList<Brick>();
+		addBalls = new ArrayList<addBall>();
 		int count = balls.size();
 		
 
@@ -89,6 +92,12 @@ public class GamePanel extends JPanel implements ActionListener
 				add(addB);
 			}
 		}
+		
+		//addBall
+		//for(int i = 1; i < 8; i++)
+		//{
+		//	double random = Math.random
+		//}
 		
 
 		
@@ -177,7 +186,7 @@ t1.start();
 			gameRun = false;
 			if(!gameRun)
 			{
-				frame.over();
+
 			}	
 			
 		}

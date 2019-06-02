@@ -29,6 +29,11 @@ public class GamePanel extends JPanel implements ActionListener
 	
 	private ArrayList<Brick> bricks;
 	
+	public void setFrame(GameBoardMain fr)
+	{
+		frame = fr;
+	}
+	
 	public GamePanel()
 	{
 		this.setBounds(0,0,500,500);
@@ -188,10 +193,7 @@ t1.start();
 		
 	}
 	
-	public void setFrame(GameBoardMain fr)
-	{
-		frame = fr;
-	}
+	
 	
 	
 }

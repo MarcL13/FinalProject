@@ -14,7 +14,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 	private ArrayList<Ball> balls;
 	private guiStartMenu menu;
 	private GamePanel game;
-	private guiLeaderboard over;
+	private guiLeaderboard board;
 	
 	
 	public GameBoardMain()
@@ -34,6 +34,10 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		game.setVisible(true);
 		game.setEnabled(true);
 		
+		board = new guiLeaderboard();
+		board.setVisible(true);
+		board.setEnabled(true);
+		
 		
 		
 		//general stuff
@@ -49,6 +53,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		this.remove(menu);
 		add(game);
 		repaint();
+		this.revalidate();
 	}
 	
 	//if we want to go back to main menu
@@ -56,16 +61,22 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 	{
 		this.remove(game);
 		add(menu);
+		repaint();
+		this.revalidate();
 	}
 	public void over()
 	{
 		this.remove(game);
-		add(over);
+		this.remove(menu);
+		add(board);
+		repaint();
+		this.revalidate();
 	}
 	
 	
 	public static void main(String[] args)
 	{
+		
 		new GameBoardMain();
 	}
 

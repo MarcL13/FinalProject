@@ -7,9 +7,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Double;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,19 +25,13 @@ public class GamePanel extends JPanel implements ActionListener
 	private ArrayList<Ball> balls = new ArrayList<>();
 	private BallShooter shotta = new BallShooter(getWidth()/2, getHeight());
 	Ball newBall = new Ball(shotta.getX(), shotta.getY());
+	private int level = 1;
 	
 	private ArrayList<Brick> bricks;
 	
 	public GamePanel()
 	{
 		this.setBounds(0,0,500,500);
-		setLayout(new GridBagLayout());
-		
-		
-		
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
 		
 		//making a button to go back to main menu
 		//JButton back = new JButton("Main Menu");
@@ -66,9 +63,27 @@ public class GamePanel extends JPanel implements ActionListener
 //			}
 //		}
 		//whatever
-		Brick brick = new Brick(10,10,1);
-		gbc.gridx = 1;
-		add(brick,gbc);
+		
+		
+
+		
+		for(int i=1;i<8;i++)
+		{
+			double random = Math.random();
+			if(random<.5)
+			{
+				Brick brick = new Brick(i,0,level);
+				add(brick);
+				bricks.add(brick);
+			}
+			else if(random>.8)
+			{
+				addBall addB = new addBall(i,0);
+				add(addB);
+			}
+		}
+		
+
 		
 
 		

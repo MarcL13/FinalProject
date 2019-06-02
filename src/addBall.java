@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
@@ -18,7 +19,7 @@ import javax.swing.JComponent;
 		public addBall(int x,  int y) {
 			
 			setBounds(x,y,20,20);
-			
+			this.setPreferredSize(new Dimension(75,50));
 			addBall = new Ellipse2D.Double(0, 0 , 19, 19);
 	}
 		

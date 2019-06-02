@@ -76,28 +76,33 @@ public class GamePanel extends JPanel implements ActionListener
 		
 		
 
-		
+		double random = 0;
 		for(int i=1;i<8;i++)
 		{
-			double random = Math.random();
-			if(random<.5)
+			random = Math.random();
+			if(random<.4)
 			{
 				Brick brick = new Brick(i,0,level);
 				add(brick);
 				bricks.add(brick);
+				
 			}
-			else if(random>.8)
+			else if(.4<=random && random<=.6)
 			{
 				addBall addB = new addBall(i,0);
+				addBalls.add(addB);
 				add(addB);
 			}
 		}
 		
-		//addBall
-		//for(int i = 1; i < 8; i++)
-		//{
-		//	double random = Math.random
-		//}
+		
+//		int randLocation = (int)(Math.random() * 7) + 1;
+//		if(randLocation != random)
+//		{
+//			addBall addB = new addBall(randLocation, 0);
+//			addBalls.add(addB);
+//			add(addB);
+//		}
 		
 
 		
@@ -160,18 +165,18 @@ t1.start();
 				for(Brick br:bricks) {
 					br.update();
 					
-					for(int i=1;i<8;i++)
+					for(int j=1;j<8;j++)
 					{
-						double random = Math.random();
-						if(random<.5)
+						double randomBrick = Math.random();
+						if(randomBrick<.5)
 						{
-							Brick brick = new Brick(i,0,level);
+							Brick brick = new Brick(j,0,level);
 							add(brick);
 							bricks.add(brick);
 						}
-						else if(random>.8)
+						else if(randomBrick>.8)
 						{
-							addBall addB = new addBall(i,0);
+							addBall addB = new addBall(j,0);
 							add(addB);
 						}
 					}
@@ -192,7 +197,7 @@ t1.start();
 		}
 	}
 		
-		
+		repaint();
 		
 		
 	}

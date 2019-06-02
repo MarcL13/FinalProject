@@ -63,16 +63,7 @@ public class GamePanel extends JPanel implements ActionListener
 
 		
 	
-//		for(Ball b : balls)
-//		{
-//			if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
-//			{
-//				remove(enemy);
-//				balls.add(new Ball(10,10));
-				//count--;
-//			}
-//		}
-		//whatever
+		
 		
 		
 
@@ -150,6 +141,20 @@ public class GamePanel extends JPanel implements ActionListener
 			}
 	
 			});
+		
+		//removing the addBalls
+		for(Ball b : balls)
+		{
+			for(addBall enemy : addBalls)
+			{
+				if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
+				{
+					remove(enemy);
+					balls.add(new Ball(10,10));
+					count--;
+				}
+			}	
+		}
 
 Timer t1 = new Timer(1000/60,this);
 t1.start();
@@ -168,13 +173,13 @@ t1.start();
 					for(int j=1;j<8;j++)
 					{
 						double randomBrick = Math.random();
-						if(randomBrick<.5)
+						if(randomBrick<.4)
 						{
 							Brick brick = new Brick(j,0,level);
 							add(brick);
 							bricks.add(brick);
 						}
-						else if(randomBrick>.8)
+						else if(randomBrick>=.4 && randomBrick<=.6)
 						{
 							addBall addB = new addBall(j,0);
 							add(addB);

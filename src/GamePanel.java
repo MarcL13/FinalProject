@@ -150,8 +150,8 @@ public class GamePanel extends JPanel implements ActionListener
 				if(b.getX() == enemy.getX() && b.getY() == enemy.getY())
 				{
 					remove(enemy);
+					addBalls.remove(enemy);
 					balls.add(new Ball(10,10));
-					count--;
 				}
 			}	
 		}

@@ -25,6 +25,7 @@ public class GamePanel extends JPanel implements ActionListener
 	private BallShooter shotta = new BallShooter(getWidth()/2, getHeight());
 	Ball newBall = new Ball(shotta.getX(), shotta.getY());
 	private int level = 1;
+	private boolean gameRun = true;
 	
 	private ArrayList<Brick> bricks;
 	
@@ -60,6 +61,7 @@ public class GamePanel extends JPanel implements ActionListener
 //			{
 //				remove(enemy);
 //				balls.add(new Ball(10,10));
+				//count--;
 //			}
 //		}
 		//whatever
@@ -134,6 +136,7 @@ Timer t1 = new Timer(1000/60,this);
 t1.start();
 
 	//Updates: when each ball reaches bottom it is removed and bricks update with randomization	
+	while(gameRun == true) {
 		for(Ball b:balls) {
 			if(b.getY() == 0) {
 				remove(b);
@@ -162,7 +165,11 @@ t1.start();
 				}
 			}
 		}
-		
+		//Game End conditions
+	for(Brick br: bricks)
+		if(br.getX() == 0)
+			gameRun = false;
+	}
 		
 		
 		

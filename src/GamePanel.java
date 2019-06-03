@@ -63,10 +63,16 @@ public class GamePanel extends JPanel implements ActionListener
 		addBalls = new ArrayList<addBall>();
 		int count = balls.size();
 		
-
-		
+      for(Ball b : balls) {
+    	  b.setDX(1);
+    	  b.setDY(1);
+    	  
+      }
 	
-		
+      Ball iniball = new Ball (getWidth()/2,getHeight()/2);
+     balls.add(iniball);
+		add(iniball);
+		repaint();
 		
 		
 
@@ -79,7 +85,8 @@ public class GamePanel extends JPanel implements ActionListener
 //			addBalls.add(addB);
 //			add(addB);
 //		}
-		
+		Timer t1 = new Timer(1,this);
+		t1.start();
 
 
 		double random = 0;
@@ -111,13 +118,18 @@ public class GamePanel extends JPanel implements ActionListener
 
 			public void actionPerformed(ActionEvent e) 
 			{
+				
+				
 				for(Ball b: balls) {
-					b.setLocation(getWidth()/2,getHeight());
-					b.move();
+					b.setLocation(getWidth()/2,getHeight()/2);
+					b.update();
+					repaint();
 				}
 			}
 			
 		});
+		
+		
 		
 		addKeyListener(new KeyListener()
 		{
@@ -178,8 +190,7 @@ public class GamePanel extends JPanel implements ActionListener
 			}	
 		}
 
-Timer t1 = new Timer(1000/60,this);
-t1.start();
+
 
 	//Updates: when each ball reaches bottom it is removed and bricks update with randomization	
 	while(gameRun == true) {

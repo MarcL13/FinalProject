@@ -75,7 +75,75 @@ public class GamePanel extends JPanel implements ActionListener
 		repaint();
 		
 		
+		JButton Fire = new JButton("Fire");
+		Fire.setBounds(50,350,100,25);
+		add(Fire);
+		Fire.setVisible(true);
+		
+		JLabel launch = new JLabel("Enter Launch angle.  Between 30 and 150");
+		launch.setBounds(50,390,400,25);
+		add(launch);
+		launch.setVisible(true);
+		
+		JTextField answer = new JTextField();
+		answer.setBounds(50,415,200,25);
+		add(answer);
+		answer.setVisible(true);
+		
+	
+		
+		Fire.addActionListener(new ActionListener()
+			{
+				public void ActionPerformed(ActionEvent e)
+				{
+					String ans1 = answer.getText();
+					Integer ans = Integer.parseInt(ans1);
+					if(ans < 90)
+					{
+						for(Ball ball : balls)
+						{
+							ball.setDX(-10);
+							ball.setDY((int)(-(Math.sin(ans*((Math.PI)/180)))));
+						}
+					}
+					else if(ans == 90)
+					{
+						for(Ball ball : balls)
+						{
+							ball.setDX(0);
+							ball.setDY(-1);
+						}
+					}
+					else if(ans > 90)
+					{
+						for(Ball ball : balls)
+						{
+							ball.setDX(10);
+							ball.setDY((int)(-(Math.sin(ans*((Math.PI)/180)))));
+						}
+					}
+					
+//					Ball newBall = new Ball(250,500);
+//					balls.add(newBall);
+//					add(newBall);
+//					newBall.update();
 
+
+					for(Ball b: balls) {
+						b.setLocation(getWidth()/2,getHeight()/2);
+						b.update();
+						repaint();
+					}
+					
+					answer.setText("");
+				}
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 		
 		
 //		int randLocation = (int)(Math.random() * 7) + 1;
@@ -88,21 +156,22 @@ public class GamePanel extends JPanel implements ActionListener
 		Timer t1 = new Timer(1,this);
 		t1.start();
 
-
+		//bricks
 		double random = 0;
 		for(int i=1;i<8;i++)
 		{
 			random = Math.random();
 			if(random<.4)
 			{
-				Brick brick = new Brick(i,0,level);
-				add(brick);
+				Brick brick = new Brick((i+1)*70,0,level);
 				bricks.add(brick);
+				add(brick);
+				
 				
 			}
 			else if(.4<=random && random<=.6)
 			{
-				addBall addB = new addBall(i,0);
+				addBall addB = new addBall((i+1)*70,0);
 				addBalls.add(addB);
 				add(addB);
 			}
@@ -147,7 +216,6 @@ public class GamePanel extends JPanel implements ActionListener
 					for(Ball b: balls)
 					{
 						add(b);
-						b.move();
 						repaint();
 					}
 				}
@@ -215,7 +283,7 @@ public class GamePanel extends JPanel implements ActionListener
 			
 		}
 	}
-		
+		setLayout(null);
 		repaint();
 		
 	}

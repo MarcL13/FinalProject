@@ -7,7 +7,7 @@ import javax.swing.JComponent;
 public class Ball extends JComponent implements Updatable
 {
 	private Ellipse2D.Double ball;
-	private int dx = 0, dy = -8;
+	private int dx = 0, dy = -5;
 	public Ball(int x, int y)
 	{
 		setBounds(x,y,9,9);

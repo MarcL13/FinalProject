@@ -49,75 +49,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		board.setEnabled(true);
 		
 		
-		JButton Fire = new JButton("Fire");
-		Fire.setBounds(50,425,200,25);
-		add(Fire);
-		Fire.setVisible(true);
 		
-		JLabel launch = new JLabel("Enter Launch angle.  Between 30 and 150");
-		launch.setBounds(50,350,400,25);
-		add(launch);
-		launch.setVisible(true);
-		
-		JTextField answer = new JTextField();
-		answer.setBounds(50,380,200,25);
-		add(answer);
-		answer.setVisible(true);
-		
-	
-		
-		Fire.addActionListener(new ActionListener()
-			{
-				public void ActionPerformed(ActionEvent e)
-				{
-					String ans1 = answer.getText();
-					Integer ans = Integer.parseInt(ans1);
-					if(ans <= 90)
-					{
-						for(Ball ball : balls)
-						{
-							ball.setDX(-10);
-							ball.setDY((int)(Math.sin(ans*((Math.PI)/180))));
-						}
-					}
-					else if(ans == 90)
-					{
-						for(Ball ball : balls)
-						{
-							ball.setDX(0);
-							ball.setDY(1);
-						}
-					}
-					else if(ans >= 90)
-					{
-						for(Ball ball : balls)
-						{
-							ball.setDX(10);
-							ball.setDY((int)(Math.sin(ans*((Math.PI)/180))));
-						}
-					}
-					
-//					Ball newBall = new Ball(250,500);
-//					balls.add(newBall);
-//					add(newBall);
-//					newBall.update();
-
-
-					for(Ball b: balls) {
-						b.setLocation(getWidth()/2,getHeight()/2);
-						b.update();
-						repaint();
-					}
-					
-					answer.setText("");
-				}
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
 		
 		
 		Timer t1 = new Timer(1000/60, this);
@@ -126,7 +58,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		repaint();
 		
 		//general stuff
-		this.setResizable(false);
+		//this.setResizable(false);
 		this.setVisible(true);		
 		
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

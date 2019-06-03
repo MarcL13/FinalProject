@@ -86,8 +86,10 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 	{
 		this.remove(menu);
 		add(game);
+		game.setVisible(true);
+
 		repaint();
-		this.revalidate();
+	
 	}
 	
 	//if we want to go back to main menu

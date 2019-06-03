@@ -69,8 +69,8 @@ public class GamePanel extends JPanel implements ActionListener
     	  
       }
 	
-      Ball iniball = new Ball (getWidth()/2,getHeight()/2);
-     balls.add(iniball);
+      	Ball iniball = new Ball (getWidth()/2,getHeight()/2);
+      	balls.add(iniball);
 		add(iniball);
 		repaint();
 		
@@ -163,10 +163,12 @@ public class GamePanel extends JPanel implements ActionListener
 			random = Math.random();
 			if(random<.4)
 			{
-				Brick brick = new Brick((i+1)*70,0,level);
+				System.out.print(bricks.size());
+				Brick brick = new Brick((i+1)*70,20,level);
 				bricks.add(brick);
 				add(brick);
-				
+				repaint();
+				//revalidate();
 				
 			}
 			else if(.4<=random && random<=.6)
@@ -257,6 +259,7 @@ public class GamePanel extends JPanel implements ActionListener
 						double randomBrick = Math.random();
 						if(randomBrick<.4)
 						{
+							System.out.print(bricks.size());
 							Brick brick = new Brick(j,0,level);
 							add(brick);
 							bricks.add(brick);
@@ -285,7 +288,7 @@ public class GamePanel extends JPanel implements ActionListener
 	}
 		setLayout(null);
 		repaint();
-		
+		revalidate();
 	}
 
 	@Override

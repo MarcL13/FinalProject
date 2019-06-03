@@ -97,10 +97,17 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 						}
 					}
 					
-					Ball newBall = new Ball(250,500);
-					balls.add(newBall);
-					add(newBall);
-					newBall.update();
+//					Ball newBall = new Ball(250,500);
+//					balls.add(newBall);
+//					add(newBall);
+//					newBall.update();
+
+
+					for(Ball b: balls) {
+						b.setLocation(getWidth()/2,getHeight()/2);
+						b.update();
+						repaint();
+					}
 					
 					answer.setText("");
 				}

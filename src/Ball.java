@@ -17,9 +17,7 @@ public class Ball extends JComponent implements Updatable
 	
 	public void update()
 	{
-		setLocation(getX() + dx, getY() + dy);
-		
-		
+		setLocation(getX() + dx, getY() + dy);	
 	}
 	
 	public void setDX(int x)
@@ -39,6 +37,9 @@ public class Ball extends JComponent implements Updatable
 	{
 		return dy;
 	}
+	
+	
+	
 	
 	
 	public void paintComponent(Graphics g)

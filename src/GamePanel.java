@@ -22,8 +22,7 @@ public class GamePanel extends JPanel implements ActionListener
 {
 	private GameBoardMain frame;
 	private ArrayList<Ball> balls = new ArrayList<>();
-	private BallShooter shotta = new BallShooter(getWidth()/2, getHeight());
-	Ball newBall = new Ball(shotta.getX(), shotta.getY());
+	
 	private int level = 1;
 	private boolean gameRun = true;
 	
@@ -36,9 +35,12 @@ public class GamePanel extends JPanel implements ActionListener
 		frame = fr;
 	}
 	
-	public GamePanel()
+	public GamePanel() 
 	{
 		this.setBounds(0,0,500,500);
+		
+		
+		
 		
 		//making a button to go back to main menu
 		//JButton back = new JButton("Main Menu");
@@ -56,6 +58,7 @@ public class GamePanel extends JPanel implements ActionListener
 	//	});
 		
 		balls = new ArrayList<Ball>();
+		balls.add(new Ball(getWidth()/2,getHeight()));
 		bricks = new ArrayList<Brick>();
 		addBalls = new ArrayList<addBall>();
 		int count = balls.size();
@@ -66,6 +69,18 @@ public class GamePanel extends JPanel implements ActionListener
 		
 		
 		
+
+		
+		
+//		int randLocation = (int)(Math.random() * 7) + 1;
+//		if(randLocation != random)
+//		{
+//			addBall addB = new addBall(randLocation, 0);
+//			addBalls.add(addB);
+//			add(addB);
+//		}
+		
+
 
 		double random = 0;
 		for(int i=1;i<8;i++)
@@ -86,20 +101,24 @@ public class GamePanel extends JPanel implements ActionListener
 			}
 		}
 		
+		JButton Fire = new JButton("Fire");
+		Fire.setBounds(getWidth()/2,getHeight(),20,20);
+		Fire.setLocation(450, 450);
+		add(Fire,frame);
 		
-//		int randLocation = (int)(Math.random() * 7) + 1;
-//		if(randLocation != random)
-//		{
-//			addBall addB = new addBall(randLocation, 0);
-//			addBalls.add(addB);
-//			add(addB);
-//		}
-		
+		Fire.addActionListener(new ActionListener() 
+		{
 
+			public void actionPerformed(ActionEvent e) 
+			{
+				for(Ball b: balls) {
+					b.setLocation(getWidth()/2,getHeight());
+					b.move();
+				}
+			}
+			
+		});
 		
-
-		
-		add(shotta);
 		addKeyListener(new KeyListener()
 		{
 
@@ -135,6 +154,8 @@ public class GamePanel extends JPanel implements ActionListener
 					for(Ball b: balls)
 					{
 						add(b);
+						b.move();
+						repaint();
 					}
 				}
 				 
@@ -152,6 +173,7 @@ public class GamePanel extends JPanel implements ActionListener
 					remove(enemy);
 					addBalls.remove(enemy);
 					balls.add(new Ball(10,10));
+					
 				}
 			}	
 		}
@@ -196,14 +218,13 @@ t1.start();
 			gameRun = false;
 			if(!gameRun)
 			{
-
+               
 			}	
 			
 		}
 	}
 		
 		repaint();
-		
 		
 	}
 

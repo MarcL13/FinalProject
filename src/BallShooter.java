@@ -32,14 +32,15 @@ int speed = 1;
 		x=x+angleX;
 		y=y+angleY;
 		
-		
+		//We Need to connect this to the shooter itself somehow
+	}
 		public void paintComponent(Graphics g)
 		{
 			Graphics2D g2 = (Graphics2D) g;
 			g2.fillOval(x,y,10,10);
 			
 		}
-	}
+	
 
 	@Override
 	public void update() {

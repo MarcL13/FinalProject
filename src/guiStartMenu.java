@@ -57,7 +57,7 @@ public class guiStartMenu extends JPanel implements ActionListener
 
 		public void actionPerformed(ActionEvent e) 
 		{
-
+                       frame.over();
 		}
 		
 	});

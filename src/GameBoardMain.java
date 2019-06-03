@@ -39,12 +39,29 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		
 		
 		
+		
+		
 		//general stuff
 		this.setResizable(false);
 		this.setVisible(true);		
 		
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		for(Ball b : balls)
+		{
+			b.update();
+		}
+		for(int i = balls.size() - 1; i >= 0; i--)
+		{
+			if(balls.get(i).getY() < 0)
+			{
+				remove(balls.get(i));
+			}	
+		}
 	}
 	
 	public void start()
@@ -79,11 +96,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		new GameBoardMain();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void update() {

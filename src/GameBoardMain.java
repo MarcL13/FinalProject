@@ -43,6 +43,7 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		game = new GamePanel();
 		game.setVisible(true);
 		game.setEnabled(true);
+		add(game);
 		
 		board = new guiLeaderboard();
 		board.setVisible(true);

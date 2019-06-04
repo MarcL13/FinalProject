@@ -33,11 +33,11 @@ public class GameBoardMain extends JFrame implements Updatable,ActionListener
 		balls = new ArrayList<Ball>();
 		balls.add(new Ball(250,500));
 		
-		menu = new guiStartMenu();
-		menu.setFrame(this);
-		menu.setVisible(true);
-		menu.setEnabled(true);
-		add(menu);
+//		menu = new guiStartMenu();
+//		menu.setFrame(this);
+//		menu.setVisible(true);
+//		menu.setEnabled(true);
+//		add(menu);
 		
 		
 		game = new GamePanel();
